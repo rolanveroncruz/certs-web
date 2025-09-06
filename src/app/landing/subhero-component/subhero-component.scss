@@ -1,0 +1,30 @@
+.subhero{
+  background-color: #23355a;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.subhero-headline{
+ color: dimgray;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+.subhero-logos{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+.subhero-logos .logo{
+  display: inline-block;
+
+}
+
+.subhero-logos img{
+  width: 140px;
+  filter: invert(100%) sepia(100%);
+  margin-right:20px;
+  margin-left:20px;
+}

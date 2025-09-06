@@ -1,0 +1,23 @@
+.solutions-container {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: rgb(189,155,77,0.08);
+}
+.solutions-headline {
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  color: black;
+}
+.solutions-text {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+.solutions-grid {
+  display: grid;
+  padding: 2rem;
+  grid-template-columns: 1fr 1fr 1fr; /* 3 columns of equal width*/
+  grid-template-rows: 1fr 1fr; /* 2 columns of equal width*/
+}

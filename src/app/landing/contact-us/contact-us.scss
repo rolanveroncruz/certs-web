@@ -1,0 +1,30 @@
+.contact-us-container{
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.contact-us-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.contact-us-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  width:50%;
+}
+.contact-us-form-fieldset{
+  justify-content: left;
+  display:block;
+  border: none;
+}
+.contact-us-address{
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  width:50%;
+}
