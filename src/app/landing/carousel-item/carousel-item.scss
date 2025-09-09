@@ -1,0 +1,33 @@
+.carousel-item{
+  min-width:100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #eff5ff;
+}
+.carousel-item-image{
+  flex: 1;
+  padding: 0;
+  margin: 0;
+}
+.carousel-item-text{
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:flex-start;
+  padding-left: 4rem;
+  padding-right: 12rem;
+
+
+}
+.carousel-item-text-headline{
+  font-family: 'Roboto', sans-serif;
+  font-size: 3em;
+}
+.carousel-item-text-text{
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.75em;
+  padding-top: 2rem;
+}

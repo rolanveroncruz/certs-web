@@ -1,1 +1,25 @@
-<p>carousel works!</p>
+<div  class="carousel-container">
+  <div class="carousel-wrapper">
+
+  <div class="carousel-track" #carouselTrack>
+    <app-carousel-item #carouselItemRef headline="Certificates.<br> Managed. <br> Simplified."
+    text="We help with various cybersecurity solutions so that you can focus on what matters: your business!"/>
+
+    <app-carousel-item #carouselItemRef headline="Certificate Lifecycle Management"
+                       text="Avoid untimely certificate expiries by automating your renewals."/>
+
+    <app-carousel-item #carouselItemRef headline="Digital Signing <br> &amp; Document <br> Workflows"
+                       text="Save time spent chasing up on signatures and keep your approval process flowing."/>
+  </div>
+  </div>
+</div>
+<button id="prev-btn" class="scroll-button left" (click)="scrollPrev()">
+  <svg xmlns="http://www.w3.org/2000/svg" class="button-svg" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+  </svg>
+</button>
+<button id="next-btn" class="scroll-button right" (click)="scrollNext()">
+  <svg xmlns="http://www.w3.org/2000/svg" class="button-svg" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+  </svg>
+</button>
