@@ -17,7 +17,7 @@ import {Products} from './products/products';
     HeaderComponent,
     // HeroComponent,
     // SubheroComponent,
-    BusinessIsSecure,
+    // BusinessIsSecure,
     SSLCertificates,
     ChooseTheRight,
     SigningCerts,
