@@ -17,12 +17,7 @@ import {Partners} from './partners/partners';
   selector: 'app-landing',
   imports: [
     HeaderComponent,
-    // HeroComponent,
-    // SubheroComponent,
-    // BusinessIsSecure,
     SSLCertificates,
-    ChooseTheRight,
-    SigningCerts,
     Solutions,
     ContactUs,
     Footer,
