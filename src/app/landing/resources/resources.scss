@@ -1,0 +1,29 @@
+.resources-container{
+  width: 84%;
+  margin-left: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: rgb(189,155,77,0.08);
+}
+.resources-headline{
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  color: black;
+}
+.resources-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2rem;
+  padding: 2rem;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+.resources-grid-item{
+
+}
+.resources-grid-item-headline{
+  font-family: 'Roboto', sans-serif;
+  font-size: 22px;
+  padding:1em;
+}

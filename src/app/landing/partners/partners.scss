@@ -1,0 +1,30 @@
+.partners-container{
+    width: 80%;
+  margin-left: 200px;
+}
+.partners-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+
+}
+.partners-row-item-text{
+  flex: 2;
+}
+.partners-row-item{
+  flex: 1;
+
+}
+.partners-headline{
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  color: black;
+  padding: 1rem;
+
+}
+.partners-text{
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
