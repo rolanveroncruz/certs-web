@@ -4,7 +4,7 @@ import {ProductGridItem} from '../product-grid-item/product-grid-item';
 @Component({
   selector: 'app-products',
   imports: [
-    ProductGridItem
+    ProductGridItem,
   ],
   templateUrl: './products.html',
   styleUrl: './products.scss'

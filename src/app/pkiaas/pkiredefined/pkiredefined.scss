@@ -1,0 +1,25 @@
+.creatingsecure-container{
+  margin-top: 30px;
+  margin-bottom: 30px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width:100%;
+}
+.creatingsecure-headline {
+    font-family: 'Roboto', sans-serif;
+    font-size: 3em;
+    color: black;
+    padding-bottom: 2rem;
+  line-height: 1.10em;
+}
+.creatingsecure-grid{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2rem;
+  padding-top: 2rem;
+
+}
