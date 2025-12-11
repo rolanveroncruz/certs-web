@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {RouterLink} from '@angular/router';
+import {Clm} from '../../clm/clm';
 
 @Component({
   selector: 'app-solutions',
@@ -8,4 +10,5 @@ import { Component } from '@angular/core';
 })
 export class Solutions {
 
+  protected readonly Clm = Clm;
 }

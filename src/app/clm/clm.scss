@@ -1,0 +1,7 @@
+.clm-container{
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto; // top:0, left/right:auto
+  display: flex;
+  flex-direction: column;
+}

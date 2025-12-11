@@ -1,0 +1,24 @@
+.wdwn-container{
+  margin-top: 30px;
+  margin-bottom: 30px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width:100%;
+}
+.wdwn-headline {
+    font-family: 'Roboto', sans-serif;
+    font-size: 3em;
+    color: black;
+}
+.wdwn-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2rem;
+  padding-top: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+
+}
