@@ -2,17 +2,16 @@
   <div class="carousel-wrapper">
 
   <div class="carousel-track" #carouselTrack>
-    <app-carousel-item #carouselItemRef headline="Certificates. Managed.  Simplified."
+    <app-carousel-item #carouselItemRef [priority]="true"  headline="Certificates. Managed.  Simplified."
     text="We help with various cybersecurity solutions so that you can focus on what matters: your business!"/>
 
     <app-carousel-item #carouselItemRef headline="Certificate Lifecycle Management"
                        text="Avoid untimely certificate expiries by automating your renewals."/>
 
-    <app-carousel-item #carouselItemRef headline="Digital Signing <br> &amp; Document <br> Workflows"
+    <app-carousel-item #carouselItemRef headline="Digital Signing &amp; Document Workflows"
                        text="Save time spent chasing up on signatures and keep your approval process flowing."/>
   </div>
   </div>
-</div>
 <button id="prev-btn" class="scroll-button left" (click)="scrollPrev()">
   <svg xmlns="http://www.w3.org/2000/svg" class="button-svg" viewBox="0 0 24 24" stroke="currentColor">
     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
@@ -23,3 +22,4 @@
     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
   </svg>
 </button>
+</div>

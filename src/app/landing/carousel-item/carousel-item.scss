@@ -1,34 +1,59 @@
+:host {
+  display: block;
+  flex: 0 0 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
 .carousel-item{
   min-width:100%;
+  width: 100%;
+
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   background-color: #eff5ff;
+  box-sizing: border-box;
+
+  /* hide anything that tries to stick out*/
+  overflow: hidden;
+
 }
 .carousel-item-image{
-  flex: 1;
+  flex: 2;
   padding: 0;
   margin: 0;
+  min-width: 0; //Allow this container to shrink below the image's native size
+  display: flex;
+  justify-content: center;
 }
+// For the img inside the flex item
+.carousel-item-image img{
+  max-width: 100%; // try to be 800px but shrink if the column is smaller
+  height: auto; // maintain aspect ratio
+  object-fit: contain; // ensure the whole image is visible
+}
+
 .carousel-item-text{
-  flex: 2;
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items:flex-start;
-  padding-left: 4rem;
-  padding-right: 12rem;
+
+  min-width: 0; // allow this container to shrink
+  padding-left: 5%;
+  padding-right: 10%;
 
 
 }
 .carousel-item-text-headline{
   font-family: 'Roboto', sans-serif;
-  font-size: 3em;
+  font-size: 2em;
   line-height: 1.10em;
 }
 .carousel-item-text-text{
   font-family: 'Roboto', sans-serif;
-  font-size: 1.75em;
+  font-size: 1.5em;
   padding-top: 2rem;
 }
