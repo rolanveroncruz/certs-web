@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {DMHeaderComponent} from './header/header';
+import {HeaderComponent} from '../landing/header/header';
 import {DSCarousel} from './carousel/carousel';
 import {CreatingSecure} from './creatingsecure/creatingsecure';
 import {DSResources} from './ds-resources/resources';
@@ -8,7 +8,7 @@ import {DSContactUs} from './contact-us/contact-us';
 @Component({
   selector: 'app-digital-signing',
   imports: [
-    DMHeaderComponent,
+    HeaderComponent,
     DSCarousel,
     CreatingSecure,
     DSResources,

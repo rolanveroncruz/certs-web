@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {CLMHeaderComponent} from './header/header';
+import {HeaderComponent} from '../landing/header/header';
 import {WhyDoWeNeedCLM} from './whydoweneedclm/whydoweneedclm';
 import {Twohundreddaycerts} from './twohundreddaycerts/twohundreddaycerts';
 import {Clmcapabilities} from './clmcapabilities/clmcapabilities';
@@ -10,7 +10,7 @@ import {CLMCarousel} from './carousel/carousel';
 @Component({
   selector: 'app-clm',
   imports: [
-    CLMHeaderComponent,
+    HeaderComponent,
     WhyDoWeNeedCLM,
     Twohundreddaycerts,
     Clmcapabilities,
