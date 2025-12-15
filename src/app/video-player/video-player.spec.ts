@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CarouselItem } from './carousel-item';
+import { VideoPlayer } from './video-player';
 
-describe('CarouselItem', () => {
-  let component: CarouselItem;
-  let fixture: ComponentFixture<CarouselItem>;
+describe('VideoPlayer', () => {
+  let component: VideoPlayer;
+  let fixture: ComponentFixture<VideoPlayer>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CarouselItem]
+      imports: [VideoPlayer]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CarouselItem);
+    fixture = TestBed.createComponent(VideoPlayer);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

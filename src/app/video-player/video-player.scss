@@ -1,0 +1,55 @@
+.feature-container {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  align-items: center; // Vertically center the text relative to the video
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #EFF5FF;
+
+  // Responsive: Stack them on smaller screens
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr; // Single column
+  }
+}
+
+.text-content {
+  width: 100%;
+  padding: 2rem;
+  h2 {
+
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #333;
+    line-height: 1.2;
+
+  }
+
+  p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+    padding-right: 4em;
+  }
+}
+
+.video-wrapper {
+  width: 100%;
+
+  iframe {
+    width: 100%;
+    // Modern CSS property to maintain 16:9 ratio automatically
+    aspect-ratio: 16 / 9;
+    border-radius: 8px; // Nice rounded corners
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); // Subtle shadow
+  }
+}
+
+.video-error {
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  color: #666;
+}

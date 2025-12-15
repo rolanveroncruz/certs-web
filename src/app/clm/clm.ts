@@ -5,7 +5,7 @@ import {Twohundreddaycerts} from './twohundreddaycerts/twohundreddaycerts';
 import {Clmcapabilities} from './clmcapabilities/clmcapabilities';
 import {CLMResources} from './clm-resources/resources';
 import {CLMContactUs} from './contact-us/contact-us';
-import {CLMCarousel} from './carousel/carousel';
+import {VideoPlayer} from '../video-player/video-player';
 
 @Component({
   selector: 'app-clm',
@@ -16,7 +16,7 @@ import {CLMCarousel} from './carousel/carousel';
     Clmcapabilities,
     CLMResources,
     CLMContactUs,
-    CLMCarousel
+    VideoPlayer
   ],
   templateUrl: './clm.html',
   styleUrl: './clm.scss'
