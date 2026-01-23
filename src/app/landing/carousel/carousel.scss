@@ -1,18 +1,22 @@
 .carousel-container{
-  justify-content: center;
   width: 100%;
+  position: relative; /* so absolute buttons anchor to this */
 
 }
 .carousel-wrapper{
-  width: 100%;
   overflow: hidden;
+  height: 325px  /* hard requirement */
 
 }
 .carousel-track{
   display: flex;
+  height: 100%;
   transition: transform 0.5s ease-in-out;
   transform: translateX(0);
-
+}
+@media (max-width: 768px){
+  .carousel-wrapper{ height: auto}
+  .scroll-button{ display: none}
 }
 .scroll-button {
   transition: transform 0.2s ease-in-out;

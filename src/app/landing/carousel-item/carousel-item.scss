@@ -3,57 +3,76 @@
   flex: 0 0 100%;
   width: 100%;
   box-sizing: border-box;
+  height: 100%;
 }
 .carousel-item{
-  min-width:100%;
   width: 100%;
-
+  height: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: center;
   align-items: center;
   background-color: #eff5ff;
-  box-sizing: border-box;
-
-  /* hide anything that tries to stick out*/
   overflow: hidden;
-
-}
-.carousel-item-image{
-  flex: 2;
-  padding: 0;
-  margin: 0;
-  min-width: 0; //Allow this container to shrink below the image's native size
-  display: flex;
-  justify-content: center;
-}
-// For the img inside the flex item
-.carousel-item-image img{
-  max-width: 100%; // try to be 800px but shrink if the column is smaller
-  height: auto; // maintain aspect ratio
-  object-fit: contain; // ensure the whole image is visible
 }
 
 .carousel-item-text{
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items:flex-start;
+  flex: 0 0 33.333%;
+  max-width: 33.333%;
 
-  min-width: 0; // allow this container to shrink
-  padding-left: 5%;
-  padding-right: 10%;
+  //display: flex;
+  //flex-direction: column;
+  //justify-content: center;
+  //align-items:flex-start;
 
+  padding: 0 24px;
+  box-sizing: border-box;
+
+  /* prevent long text from blowing up fixed height */
+  overflow: hidden;
 
 }
+
+.carousel-item-image{
+  height: 100%;
+}
+
+// For the img inside the flex item
+.carousel-item-image img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .carousel-item-text-headline{
   font-family: 'Roboto', sans-serif;
-  font-size: 2em;
+  font-size: clamp(1.25em, 2.2vw, 2rem);
   line-height: 1.10em;
 }
 .carousel-item-text-text{
   font-family: 'Roboto', sans-serif;
-  font-size: 1.5em;
-  padding-top: 2rem;
+  font-size: clamp(1em, 1.6vw, 1.5rem);
+  padding-top: 1rem;
 }
+@media (max-width: 768px){
+  :host { height: auto; }
+
+  .carousel-item{
+    height: auto;
+    flex-direction: column;
+  }
+
+  .carousel-item-text,
+  .carousel-item-image{
+    flex: 0 0 auto;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .carousel-item-image img{
+    width: 100%;
+    height: auto;
+  }
+}
+
+
