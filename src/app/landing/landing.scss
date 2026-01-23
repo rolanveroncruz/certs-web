@@ -1,7 +1,31 @@
+/* Make sure the host itself doesn't accidentally constrain width */
+:host {
+  display: block;
+}
+
+/* Page container */
 .landing-container {
   width: 100%;
-  max-width: 1140px;
-  margin: 0 auto; // top:0, left/right:auto
+  min-height: 100vh;
+
   display: flex;
   flex-direction: column;
+
+  /* Prevent accidental horizontal scrolling from wide children */
+  overflow-x: hidden; /* fallback */
+  overflow-x: clip; /* modern */
+
+  @supports(overflow:clip) {
+    .landing-container{
+      overflow-x: clip;
+    }
+  }
+  /* A gentle default; sections can override */
+  background: #fff;
+}
+
+/* Optional: give each section consistent vertical rhythm
+   (only works if your components render as block elements) */
+.landing-container > * {
+  display: block;
 }
