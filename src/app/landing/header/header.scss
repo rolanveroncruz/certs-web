@@ -1,86 +1,153 @@
-.header{
+.header {
   background-color: #ffffff;
   color: black;
   font-family: 'Inter', sans-serif;
 }
-.header-top-banner{
+
+/* ---------- TOP BANNER (responsive fix) ---------- */
+.header-top-banner {
   width: 100%;
   background-color: #375481;
   color: white;
+
   display: flex;
-  flex-direction: row;
-  justify-content: center;
   align-items: center;
-}
-.header-top-banner h3{
-  margin: 0;
-  padding: 1.5em;
-}
-.header-top-banner-button{
- border: 3px solid white;
-  width: 10em;
-  height: 2em;
-  border-radius:30px;
- padding: 0.20em;
+  justify-content: center;
+
+  /* mobile-friendly */
+  flex-wrap: wrap;
+  gap: 12px;
+
+  padding: 12px 16px;
   text-align: center;
 }
-.header-top-banner-button a{
-  position: relative;
+
+.header-top-banner h3 {
+  margin: 0;
+  padding: 0; /* was 1.5em; caused big height and squeeze */
+  font-size: clamp(1rem, 2.6vw, 1.25rem);
+  line-height: 1.2;
+}
+
+.header-top-banner-button {
+  border: 3px solid white;
+  border-radius: 999px;
+
+  /* remove fixed width/height; let content decide */
+  padding: 8px 16px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  white-space: nowrap;
+}
+
+.header-top-banner-button a {
   color: white;
   text-decoration: none;
 
-  font-size: 1.50em;
-}
-.header-container{
-  display: flex;
-    justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
+  font-size: clamp(1rem, 2.8vw, 1.125rem);
+  font-weight: 600;
+
+  /* remove relative positioning */
+  position: static;
 }
 
-.brand-logo{
+/* ---------- MAIN NAV BAR ---------- */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  max-width: 1200px;
+  margin: 0 auto;
+
+  /* helpful on small screens */
+  padding: 8px 16px;
+}
+
+.brand-logo {
   font-size: 1.5rem;
   font-weight: bold;
   color: inherit;
   text-decoration: none;
 }
-// Ensure the nav items are laid out horizontally
-.desktop-nav > ul{
+
+.brand-logo img {
+  height: clamp(56px, 7vw, 100px);
+  width: auto;
+  display: block;
+}
+
+/* Ensure the nav items are laid out horizontally */
+.desktop-nav > ul {
   display: flex;
+  align-items: center;
   list-style: none;
   gap: 20px;
   padding: 0;
   margin: 0;
 }
-// Position the parent relative so the child can be absolute.
+
+.desktop-nav > ul > li {
+  display: flex;
+  align-items: center;
+}
+
+.desktop-nav a {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+  padding: 10px 0;
+  white-space: nowrap;
+
+  color: black;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.w-dropdown-btn .chev {
+  font-size: 0.85em;
+  line-height: 1;
+  transform: translateY(1px);
+}
+
+.w-dropdown-btn {
+  gap: 6px;
+}
+
+/* Dropdown */
 .dropdown {
   position: relative;
 }
-// style and hide the submenu by default;
+
 .dropdown-content {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
-  font-size: 10px;
-  font-family: 'Times New Roman', Times, serif;
-  min-width: 160px;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  min-width: 220px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   list-style: none;
-  padding: 0;
+  padding: 8px 0;
   top: 100%;
   left: 0;
   z-index: 1000;
 }
-.dropdown-content li{
-  padding:0;
-  margin:0;
+
+.dropdown-content li {
+  padding: 0;
+  margin: 0;
   width: 100%;
 }
-// Style the links inside the dropdown.
+
 .dropdown-content li a {
   color: #333;
-  padding: 12px 16px;
+  padding: 10px 16px;
   text-decoration: none;
   display: block;
   transition: background-color 0.2s ease;
@@ -91,83 +158,141 @@
   color: #0056b3;
 }
 
-
-
-// The Magic: Show the menu when the user hovers over the 'li'.
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
-.desktop-nav a{
-  color:black;
-  text-decoration: none;
-  transition: color 0.3s ease;
-  font-size: 1.8em;
+/* Desktop nav links */
+
+.desktop-nav a:hover {
+  color: #375481; /* was white; invisible on white header */
 }
 
-.desktop-nav a:hover{
-  color: #fff;
-}
-
-.menu-toggle{
+/* Hamburger button */
+.menu-toggle {
   display: none;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0;
+  padding: 8px;
 }
 
-.hamburger{
+.hamburger {
   display: block;
-  width: 25px;
+  width: 26px;
   height: 3px;
   background-color: black;
   margin: 5px 0;
   transition: transform 0.3s ease;
 }
 
-.mobile-nav{
+/* Mobile nav panel (it only exists when @if(isMenuOpen) is true) */
+.mobile-nav {
   display: none;
   background-color: #2d3748;
   padding: 1rem;
   border-top: 1px solid #4a5568;
 }
 
-.mobile-nav ul{
+.mobile-nav ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.mobile-nav li{
+.mobile-nav li {
   text-align: center;
   margin-bottom: 1rem;
 }
 
-.mobile-nav a{
+.mobile-nav a {
   display: block;
-  padding: 0.5rem 0;
+  padding: 0.75rem 0;
   color: #fff;
   text-decoration: none;
   font-size: 1.1rem;
   transition: background-color 0.3s ease;
 }
 
-.mobile-nav a:hover{
+.mobile-nav a:hover {
   background-color: #4a5568;
 }
 
-@media (max-width: 768px){
- /* Hide the desktop navigation */
-  .desktop-nav{
+/* Responsive switch */
+@media (max-width: 1024px) {
+  .desktop-nav {
     display: none;
   }
-  /* Show the hamburger button*/
-  .menu-toggle{
+  .mobile-nav {
     display: block;
   }
-    /* While the menu is open, this will be displayed. */
-  .mobile-nav{
+  .menu-toggle {
     display: block;
   }
+
+  /* the header container should not overflow */
+}
+
+/* Mobile accordion */
+.mobile-accordion {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.mobile-accordion-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+  background: transparent;
+  border: 0;
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+
+  padding: 0.5rem 0;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.mobile-accordion-btn .chev {
+  display: inline-block;
+  transition: transform 150ms ease;
+}
+
+.mobile-accordion-btn .chev.open {
+  transform: rotate(180deg);
+}
+
+.mobile-accordion-btn:active {
+  opacity: 0.9;
+}
+
+/* Submenu */
+
+/* Center the submenu panel under Solutions */
+.mobile-nav .mobile-accordion .mobile-submenu {
+  display: inline-block;          /* key: center via parent text-align */
+  width: min(520px, 92%);
+  margin: 8px 0 12px 0;           /* no auto needed now */
+  padding: 8px 0;
+
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+
+  text-align: left;               /* keep submenu content left-aligned */
+  box-sizing: border-box;
+}
+
+/* Keep submenu links nested */
+.mobile-nav .mobile-accordion .mobile-submenu li a {
+  text-align: left;
+  padding: 10px 14px;
+  font-size: 0.98rem;
+  font-weight: 500;
+  opacity: 0.95;
 }

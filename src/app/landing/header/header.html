@@ -11,7 +11,7 @@
     <nav class="desktop-nav">
       <ul>
         <li class="dropdown">
-          <a href="#solutions" class="w-dropdown-btn">Solutions  &#9662;</a>
+          <a href="#solutions" class="w-dropdown-btn">Solutions  <span class="chev">▼</span></a>
           <ul class="dropdown-content">
             <li><a href="clm">Certificate Lifecycle Management</a></li>
             <li><a href="digital-signing">Digital Signing</a></li>
@@ -33,14 +33,32 @@
       <span class="hamburger"></span>
     </button>
   </div>
-
-  @if(isMenuOpen){
-    <nav class="mobile-nav" >
+  @if (isMenuOpen()) {
+    <nav class="mobile-nav">
       <ul>
-        <li><a href="#home" (click)="toggleMenu()">Home</a></li>
-        <li><a href="#about" (click)="toggleMenu()">About</a></li>
-        <li><a href="#services" (click)="toggleMenu()">Services</a></li>
-        <li><a href="#contact" (click)="toggleMenu()">Contact</a></li>
+        <li class="mobile-accordion">
+          <button
+            type="button"
+            class="mobile-accordion-btn"
+            (click)="toggleSolutions()"
+            [attr.aria-expanded]="isSolutionsOpen()"
+          >
+            <span>Solutions</span>
+            <span class="chev" [class.open]="isSolutionsOpen()">▼</span>
+          </button>
+
+          @if (isSolutionsOpen()) {
+            <ul class="mobile-submenu">
+              <li><a href="clm" (click)="toggleMenu()">Certificate Lifecycle Management</a></li>
+              <li><a href="digital-signing" (click)="toggleMenu()">Digital Signing</a></li>
+              <li><a href="pkiaas" (click)="toggleMenu()">PKIaaS</a></li>
+            </ul>
+          }
+        </li>
+
+        <li><a href="#products" (click)="toggleMenu()">Products</a></li>
+        <li><a href="#resources" (click)="toggleMenu()">Resources</a></li>
+        <li><a href="#contact" (click)="toggleMenu()">Contact Us</a></li>
       </ul>
     </nav>
   }

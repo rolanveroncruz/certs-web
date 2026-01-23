@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {HostListener, signal, Component} from '@angular/core';
+
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,30 @@ import { Component } from '@angular/core';
   styleUrl: './header.scss'
 })
 export class HeaderComponent {
-  isMenuOpen = false;
+  isMenuOpen = signal(false);
+  isSolutionsOpen = signal(false);
+
+
+  constructor() {
+    this.onResize();
+  }
   toggleMenu() {
-    this.isMenuOpen = !this.isMenuOpen;
+    const next = !this.isMenuOpen();
+    this.isMenuOpen.set(next);
+
+    if (!next) this.isSolutionsOpen.set(false);
   }
 
+  toggleSolutions() {
+    this.isSolutionsOpen.update(v => !v);
+  }
+
+  @HostListener('window:resize')
+  onResize() {
+    if (window.innerWidth >1024) {
+      this.isMenuOpen.set(false);
+      this.isSolutionsOpen.set(false);
+    }
+
+  }
 }
