@@ -1,27 +1,53 @@
-.products-container{
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    width:100%;
+.products-container {
+  width: 100%;
+  min-height: 585px; /* "like above" but safe */
+
+  /* 115px top/bottom at 1440, scales down */
+  padding-block: clamp(48px, 7.99vw, 115px);
+
+  text-align: center;
 }
+
+.products-inner {
+  /* 90px at 1440, scales down */
+  padding-inline: clamp(16px, 6.25vw, 90px);
+}
+
 .products-headline {
-    font-family: 'Roboto', sans-serif;
-    font-size: 24px;
-    color: black;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  color: black;
+  line-height: 1.1;
+
+  font-size: clamp(38px, 3.6vw, 56px);
+  margin: 0 0 clamp(32px, 4.5vw, 65px) 0;
 }
+
 .products-text {
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  font-size: clamp(16px, 1.3vw, 18px);
+  margin-top: 16px;
+  margin-bottom: clamp(32px, 4.5vw, 65px);
+  color: rgba(0, 0, 0, 0.85);
 }
-.products-grid{
+
+/* 3x2 grid */
+.products-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 2rem;
-  padding-top: 2rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  grid-template-rows: 1fr 1fr 1fr;
+  gap: clamp(16px, 2.5vw, 32px);
+  row-gap: clamp(32px, 4.5vw, 65px);
+}
 
+/* Optional: keep it 3x2 at desktop, become 2x3 then 1x6 */
+@media (max-width: 1024px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
 }
