@@ -28,7 +28,7 @@ export class HeaderComponent {
 
   @HostListener('window:resize')
   onResize() {
-    if (window.innerWidth >1024) {
+    if (window.innerWidth >768) {
       this.isMenuOpen.set(false);
       this.isSolutionsOpen.set(false);
     }

@@ -2,8 +2,8 @@
   display: block;
   flex: 0 0 100%;
   width: 100%;
-  box-sizing: border-box;
   height: 100%;
+  box-sizing: border-box;
 }
 .carousel-item{
   width: 100%;
@@ -16,24 +16,51 @@
 }
 
 .carousel-item-text{
-  flex: 0 0 33.333%;
-  max-width: 33.333%;
-
-  //display: flex;
-  //flex-direction: column;
-  //justify-content: center;
-  //align-items:flex-start;
-
-  padding: 0 24px;
+  flex: 0 0 30%;
+  max-width:  30.0%;
   box-sizing: border-box;
 
-  /* prevent long text from blowing up fixed height */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items:flex-start;
+
   overflow: hidden;
+  padding-left: clamp(18px, 2.2vw, 32px);
+  padding-right: clamp(14px, 1.8vw, 28px);
 
 }
+.carousel-item-spacer{
+  height: clamp(18px, 3.3vw, 48px);
+  flex: 0 0 auto;
+}
 
+
+.carousel-item-text-headline{
+  margin:0;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 800;
+  line-height: 1.05em;
+  font-size: clamp(30px, 3.125vw, 45px);
+  padding-bottom: clamp(10px, 0.9vw, 14px);
+}
+
+.carousel-item-text-text{
+  margin-top: 0;
+
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  line-height: 1.55em;
+  color: #2b2f36;
+
+  font-size: clamp(14px, 1.389vw, 20px);
+  max-width: 28ch;
+}
 .carousel-item-image{
+  flex: 0 0 70%;
+  max-width: 70.0%;
   height: 100%;
+  display: flex;
 }
 
 // For the img inside the flex item
@@ -41,28 +68,38 @@
   height: 100%;
   width: 100%;
   object-fit: cover;
+  object-position: center;
   display: block;
 }
 
-.carousel-item-text-headline{
-  font-family: 'Roboto', sans-serif;
-  font-size: clamp(1.25em, 2.2vw, 2rem);
-  line-height: 1.10em;
-}
-.carousel-item-text-text{
-  font-family: 'Roboto', sans-serif;
-  font-size: clamp(1em, 1.6vw, 1.5rem);
-  padding-top: 1rem;
-}
+
+
+
 @media (max-width: 768px){
+  .scroll-button{
+    display: none;
+  }
   :host { height: auto; }
 
   .carousel-item{
     height: auto;
     flex-direction: column;
   }
+  .carousel-item-text{
+    overflow: visible;
+    width: 100%;
+    max-width: 100%;
+    align-items: center;
+    text-align: center;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .carousel-item-text-headline,
+  .carousel-item-text-text{
+    max-width: 100%;
+    word-break: break-word;
+  }
 
-  .carousel-item-text,
   .carousel-item-image{
     flex: 0 0 auto;
     max-width: 100%;

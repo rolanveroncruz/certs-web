@@ -105,7 +105,7 @@
   color: black;
   text-decoration: none;
   transition: color 0.3s ease;
-  font-size: 1.1rem;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
   font-weight: 600;
 }
 
@@ -219,7 +219,7 @@
 }
 
 /* Responsive switch */
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   .desktop-nav {
     display: none;
   }

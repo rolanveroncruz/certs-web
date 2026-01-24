@@ -4,8 +4,9 @@
 
 }
 .carousel-wrapper{
+  width: 100%;
   overflow: hidden;
-  height: 325px  /* hard requirement */
+  height: clamp( 235px, 40.625vw, 585px);
 
 }
 .carousel-track{
