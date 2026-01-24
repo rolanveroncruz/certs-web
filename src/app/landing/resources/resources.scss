@@ -1,28 +1,73 @@
-.resources-container{
+.resources-container {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  background-color: rgba(189, 155, 77, 0.08);
+
+  min-height: 585px;
+
+  /* 115px top/bottom at 1440, scales down */
+  padding-block: clamp(48px, 7.99vw, 115px);
+
   text-align: center;
-  background-color: rgb(189,155,77,0.08);
 }
-.resources-headline{
+
+.resources-inner {
+  padding-inline: clamp(16px, 6.25vw, 90px);
+}
+
+/* Big headline like Products/Solutions */
+.resources-headline {
   font-family: 'Roboto', sans-serif;
-  font-size: 24px;
+  font-weight: 700;
   color: black;
+  line-height: 1.1;
+
+  font-size: clamp(38px, 3.6vw, 56px);
+  margin: 0 0 65px 0; /* consistent “headline → grid” spacing */
 }
-.resources-grid{
+
+/* 3x2 grid */
+.resources-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 2rem;
-  padding: 2rem;
-  grid-template-rows: 1fr 1fr 1fr;
-}
-.resources-grid-item{
 
+  /* requirement: ~115px column gap at 1440, scales down */
+  column-gap: clamp(24px, 7.99vw, 115px);
+
+  /* you didn’t specify row gap; use same as products row gap feel */
+  row-gap: 65px;
 }
-.resources-grid-item-headline{
+
+/* Optional: make the tiles look like clickable cards */
+.resources-grid-item {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.resources-grid-item-headline {
   font-family: 'Roboto', sans-serif;
-  font-size: 22px;
-  padding:1em;
+  font-size: clamp(16px, 1.3vw, 18px);
+  font-weight: 700;
+  margin: 0;
+}
+
+.resources-grid-item a {
+  color: inherit;
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .resources-grid {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 32px;
+  }
+}
+
+@media (max-width: 640px) {
+  .resources-grid {
+    grid-template-columns: 1fr;
+    row-gap: 24px;
+  }
 }
