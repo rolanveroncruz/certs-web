@@ -93,11 +93,13 @@
     text-align: center;
     padding-left: 16px;
     padding-right: 16px;
+    padding-bottom: 16px;
   }
   .carousel-item-text-headline,
   .carousel-item-text-text{
     max-width: 100%;
     word-break: break-word;
+    margin-bottom: 16px;
   }
 
   .carousel-item-image{
