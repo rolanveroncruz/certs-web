@@ -15,13 +15,14 @@
   overflow-x: hidden; /* fallback */
   overflow-x: clip; /* modern */
 
+  /* A gentle default; sections can override */
+  background: #fff;
+
   @supports(overflow:clip) {
     .landing-container{
       overflow-x: clip;
     }
   }
-  /* A gentle default; sections can override */
-  background: #fff;
 }
 
 /* Optional: give each section consistent vertical rhythm

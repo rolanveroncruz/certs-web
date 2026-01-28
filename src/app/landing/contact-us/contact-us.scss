@@ -85,7 +85,7 @@ mat-form-field {
 }
 
 .contact-us-email {
-  padding-top: 12px;
+  padding-top: 0;
   font-family: 'Roboto', sans-serif;
   font-size: 18px;
   line-height: 1.4;
@@ -127,4 +127,16 @@ mat-form-field {
     align-items: center;
     margin-left: 0;
   }
+}
+.contact-us-address p,
+.contact-us-email p {
+  margin: 0;
+}
+
+.contact-us-email {
+  padding-top: 25px; /* small, balanced gap; tweak 0–8px as you like */
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
 }
