@@ -140,3 +140,22 @@ mat-form-field {
   gap: 30px;
 
 }
+.form-status{
+  margin: 12px 0;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.form-status.success{
+  background: rgba(16, 185, 129, 0.12);
+  color: #065f46;
+}
+
+.form-status.error{
+  background: rgba(239, 68, 68, 0.12);
+  color: #7f1d1d;
+}
+

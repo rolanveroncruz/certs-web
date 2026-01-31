@@ -24,63 +24,74 @@
     <!-- RIGHT: form panel -->
     <div class="contact-us-form">
 
-      <!-- ✅ NETLIFY: add name/method/data-netlify + honeypot + action -->
-      <!-- ✅ NETLIFY: remove (ngSubmit) so the browser performs a normal POST -->
       <form
         [formGroup]="contactForm"
-        name="contact-us"
-        method="POST"
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
-        action="/thank-you"
+        (ngSubmit)="onSubmitNetlify()"
+      name="contact-us"
+      method="POST"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      action="/"
       >
-        <!-- ✅ NETLIFY: required hidden form-name -->
-        <input type="hidden" name="form-name" value="contact-us" />
+      <!-- ✅ NETLIFY: required hidden form-name -->
+      <input type="hidden" name="form-name" value="contact-us" />
 
-        <!-- ✅ NETLIFY: honeypot field (hidden) -->
-        <p style="display:none">
-          <label>Don’t fill this out: <input name="bot-field" /></label>
-        </p>
+      <!-- ✅ NETLIFY: honeypot field (hidden) -->
+      <p style="display:none">
+        <label>Don’t fill this out: <input name="bot-field" /></label>
+      </p>
 
-        <mat-form-field appearance="outline" class="my-rounded-field">
-          <mat-label>First Name</mat-label>
-          <!-- ✅ NETLIFY: add name="firstName" -->
-          <input name="firstName" formControlName="firstName" matInput>
-        </mat-form-field>
+      <mat-form-field appearance="outline" class="my-rounded-field">
+        <mat-label>First Name</mat-label>
+        <!-- ✅ NOTE: keep both name + formControlName -->
+        <input name="firstName" formControlName="firstName" matInput required>
+      </mat-form-field>
 
-        <mat-form-field appearance="outline" class="my-rounded-field">
-          <mat-label>Last Name</mat-label>
-          <!-- ✅ NETLIFY: add name="lastName" -->
-          <input name="lastName" formControlName="lastName" matInput>
-        </mat-form-field>
+      <mat-form-field appearance="outline" class="my-rounded-field">
+        <mat-label>Last Name</mat-label>
+        <input name="lastName" formControlName="lastName" matInput required>
+      </mat-form-field>
 
-        <mat-form-field appearance="outline" class="my-rounded-field">
-          <mat-label>Work Email</mat-label>
-          <!-- ✅ NETLIFY: add name="email" -->
-          <input name="email" formControlName="email" matInput>
-        </mat-form-field>
+      <mat-form-field appearance="outline" class="my-rounded-field">
+        <mat-label>Work Email</mat-label>
+        <input name="email" formControlName="email" matInput type="email" required>
+      </mat-form-field>
 
-        <mat-form-field appearance="outline" class="my-rounded-field">
-          <mat-label>Phone Number</mat-label>
-          <!-- ✅ NETLIFY: add name="phone" -->
-          <input name="phone" formControlName="phone" matInput>
-        </mat-form-field>
+      <mat-form-field appearance="outline" class="my-rounded-field">
+        <mat-label>Phone Number</mat-label>
+        <input name="phone" formControlName="phone" matInput>
+      </mat-form-field>
 
-        <mat-form-field appearance="outline" class="my-rounded-field">
-          <mat-label>Company</mat-label>
-          <!-- ✅ NETLIFY: add name="company" -->
-          <input name="company" formControlName="company" matInput>
-        </mat-form-field>
+      <mat-form-field appearance="outline" class="my-rounded-field">
+        <mat-label>Company</mat-label>
+        <input name="company" formControlName="company" matInput>
+      </mat-form-field>
 
-        <mat-form-field appearance="outline" class="my-rounded-field">
-          <mat-label>Product Inquiry and Message</mat-label>
-          <!-- ✅ NETLIFY: add name="message" -->
-          <textarea name="message" formControlName="message" matInput rows="4"></textarea>
-        </mat-form-field>
+      <mat-form-field appearance="outline" class="my-rounded-field">
+        <mat-label>Product Inquiry and Message</mat-label>
+        <textarea name="message" formControlName="message" matInput rows="4" required></textarea>
+      </mat-form-field>
 
-        <button matButton="filled" type="submit">
-          Submit
-        </button>
+      <!-- ✅ NEW: user feedback message -->
+      @if (submitState() === 'success') {
+        <div class="form-status success">
+          Thanks! Your message has been sent.
+        </div>
+      } @else if (submitState() === 'error') {
+        <div class="form-status error">
+          Sorry — something went wrong. Please try again.
+        </div>
+      }
+
+      <!-- ✅ CHANGE: disable while submitting + show sending text -->
+      <button
+        matButton="filled"
+        type="submit"
+        [disabled]="submitting() || contactForm.invalid"
+      >
+        {{ submitting() ? 'Sending…' : 'Submit' }}
+      </button>
+
       </form>
     </div>
 
