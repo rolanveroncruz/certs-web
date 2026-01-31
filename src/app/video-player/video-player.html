@@ -1,21 +1,24 @@
-<section class="feature-container">
-  <div class="text-content">
-    <h2 [innerHtml]="headline"></h2>
-    <p>{{ bodyText }}</p>
+<section class="feature-item">
+  <div class="feature-item-spacer"></div>
+
+  <div class="feature-item-text">
+    <div class="feature-item-text-headline" [innerHTML]="headline"></div>
+    <div class="feature-item-text-text">{{ bodyText }}</div>
   </div>
 
-  <div class="video-wrapper">
-    @if (safeVideoUrl){
-      <iframe
-        [src]="safeVideoUrl"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+  <div class="feature-item-media">
+    @if (safeVideoUrl) {
+      <div class="feature-item-media-frame">
+        <iframe
+          [src]="safeVideoUrl"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
         </iframe>
-    } @else {
-      <div class="video-error">
-        Video unavailable
       </div>
+    } @else {
+      <div class="feature-item-media-error">Video unavailable</div>
     }
   </div>
 </section>

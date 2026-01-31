@@ -1,21 +1,42 @@
-
 .clmcapabilities-container {
+  width: 100%;
   margin-top: 10px;
   margin-bottom: 20px;
-  width: 100%;
+
+  box-sizing: border-box;
+  padding: clamp(16px, 3vw, 40px) clamp(12px, 3vw, 32px);
 }
 
-.clmcapabilities-headline{
+.clmcapabilities-headline {
   font-family: 'Roboto', sans-serif;
-  font-size: 3em;
+  font-weight: 800;
   color: black;
   text-align: center;
-  padding: 3rem;
 
+  /* responsive like your other sections */
+  font-size: clamp(24px, 4.5vw, 48px);
+  line-height: 1.15;
+
+  /* replace huge fixed padding */
+  margin: 0 auto;
+  padding: clamp(16px, 3vw, 48px) 0 clamp(12px, 2vw, 24px);
+  max-width: 24ch;
 }
 
-.clmcapabilities-img img{
-  padding-left: 5%;
+.clmcapabilities-img {
   width: 100%;
+  max-width: 1200px;      /* makes it look premium on wide screens */
+  margin: 0 auto;         /* centers the image block */
+}
 
+.clmcapabilities-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+
+  /* remove the 5% left padding which breaks mobile */
+  padding-left: 0;
+
+  /* optional: nicer look */
+  border-radius: 12px;
 }

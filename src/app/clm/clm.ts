@@ -4,7 +4,7 @@ import {WhyDoWeNeedCLM} from './whydoweneedclm/whydoweneedclm';
 import {Twohundreddaycerts} from './twohundreddaycerts/twohundreddaycerts';
 import {Clmcapabilities} from './clmcapabilities/clmcapabilities';
 import {CLMResources} from './clm-resources/resources';
-import {CLMContactUs} from './contact-us/contact-us';
+import {ContactUs} from './contact-us/contact-us';
 import {VideoPlayer} from '../video-player/video-player';
 
 @Component({
@@ -15,7 +15,7 @@ import {VideoPlayer} from '../video-player/video-player';
     Twohundreddaycerts,
     Clmcapabilities,
     CLMResources,
-    CLMContactUs,
+    ContactUs,
     VideoPlayer
   ],
   templateUrl: './clm.html',

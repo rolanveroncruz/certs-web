@@ -1,28 +1,97 @@
 .resources-container{
   width: 100%;
+  box-sizing: border-box;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background-color: rgb(189,155,77,0.08);
+
+  background-color: rgba(189,155,77,0.08);
+
+  /* consistent section padding */
+  padding: clamp(16px, 3vw, 40px) clamp(12px, 3vw, 32px);
 }
+
 .resources-headline{
   font-family: 'Roboto', sans-serif;
-  font-size: 24px;
+  font-weight: 800;
   color: black;
-}
-.resources-grid{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 2rem;
-  padding: 2rem;
-  grid-template-rows: 1fr 1fr 1fr;
-}
-.resources-grid-item{
 
+  /* scale nicely */
+  font-size: clamp(22px, 3vw, 36px);
+  line-height: 1.15;
+
+  margin: 0;
+  padding-bottom: clamp(12px, 2vw, 24px);
 }
+
+.resources-grid{
+  width: 100%;
+  max-width: 1200px;
+  box-sizing: border-box;
+
+  display: grid;
+
+  /* responsive columns (1/2/3 automatically) */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+  gap: clamp(12px, 2.2vw, 32px);
+}
+
+.resources-grid-item{
+  /* make it feel like a card */
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 10px 15px -8px rgba(0,0,0,0.12);
+
+  /* keep consistent height feel */
+  min-height: 92px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: clamp(12px, 1.8vw, 20px);
+}
+
 .resources-grid-item-headline{
   font-family: 'Roboto', sans-serif;
-  font-size: 22px;
-  padding:1em;
+  font-weight: 700;
+
+  /* responsive text */
+  font-size: clamp(16px, 1.4vw, 20px);
+  line-height: 1.25;
+
+  margin: 0;
+  padding: 0;
+}
+
+/* Make the entire card “link-like” and mobile friendly */
+.resources-grid-item-headline a{
+  color: #111827;
+  text-decoration: none;
+
+  display: inline-block;
+  width: 100%;
+
+  /* avoid awkward wrapping */
+  word-break: normal;
+  overflow-wrap: anywhere;
+}
+
+.resources-grid-item:hover{
+  transform: translateY(-2px);
+  transition: transform 0.15s ease-in-out;
+}
+
+.resources-grid-item-headline a:hover{
+  text-decoration: underline;
+}
+
+/* Optional: force 1 column on very small phones */
+@media (max-width: 420px) {
+  .resources-grid{
+    grid-template-columns: 1fr;
+  }
 }

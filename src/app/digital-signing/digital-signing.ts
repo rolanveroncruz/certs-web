@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {HeaderComponent} from '../landing/header/header';
 import {CreatingSecure} from './creatingsecure/creatingsecure';
 import {DSResources} from './ds-resources/resources';
-import {DSContactUs} from './contact-us/contact-us';
+import {ContactUs} from './contact-us/contact-us';
 import {VideoPlayer} from '../video-player/video-player';
 
 @Component({
@@ -11,7 +11,7 @@ import {VideoPlayer} from '../video-player/video-player';
     HeaderComponent,
     CreatingSecure,
     DSResources,
-    DSContactUs,
+    ContactUs,
     VideoPlayer
   ],
   templateUrl: './digital-signing.html',

@@ -1,7 +1,22 @@
+/* Page container */
 .digital-signing-container {
   width: 100%;
-  max-width: 1140px;
-  margin: 0 auto; // top:0, left/right:auto
+  min-height: 100vh;
+
   display: flex;
   flex-direction: column;
+
+  /* Prevent accidental horizontal scrolling from wide children */
+  overflow-x: hidden; /* fallback */
+  overflow-x: clip; /* modern */
+
+  /* A gentle default; sections can override */
+  background: #fff;
+
+  @supports(overflow:clip) {
+    .landing-container{
+      overflow-x: clip;
+    }
+  }
 }
+

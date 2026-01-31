@@ -21,7 +21,7 @@ type ContactUsForm = {
 }
 
 @Component({
-  selector: 'app-ds-contact-us',
+  selector: 'app-contact-us',
   imports: [
     ReactiveFormsModule,
     MatFormFieldModule,
@@ -33,7 +33,7 @@ type ContactUsForm = {
   templateUrl: './contact-us.html',
   styleUrl: './contact-us.scss'
 })
-export class DSContactUs {
+export class ContactUs {
   contactForm = new FormGroup({
     firstName: new FormControl(''),
     lastName: new FormControl(''),
