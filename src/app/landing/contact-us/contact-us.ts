@@ -1,24 +1,11 @@
 import { Component } from '@angular/core';
-import {ReactiveFormsModule, FormGroup, FormControl} from '@angular/forms';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {MatButton, MatButtonModule} from '@angular/material/button';
-import {TextFieldModule}   from '@angular/cdk/text-field';
-import {HttpClient} from '@angular/common/http';
+import { ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButton, MatButtonModule } from '@angular/material/button';
+import { TextFieldModule } from '@angular/cdk/text-field';
 
-
-type Result = {
-  status: string;
-  message: string;
-}
-type ContactUsForm = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: string;
-  company: string;
-  message: string;
-}
+// ✅ NETLIFY: removed HttpClient import (no backend calls needed)
 
 @Component({
   selector: 'app-contact-us',
@@ -41,40 +28,8 @@ export class ContactUs {
     phone: new FormControl(''),
     company: new FormControl(''),
     message: new FormControl(''),
-  })
-  disabledButton = true;
+  });
 
-  constructor( private http: HttpClient) {
-    let data = {
-      "user": "admin",
-      "request": "allow"
-    };
-    this.http.post<Result>('/api/postping', data).subscribe( (result:Result) =>{
-      if (result.status == 'OK'){
-        console.log("postping OK, message is '",result.message, "'");
-        this.disabledButton = false;
-      }
-    })
-  }
-
-  onSubmit(){
-    this.disabledButton = true;
-    let contactForm: ContactUsForm = {
-      firstName: this.contactForm.value.firstName || " ",
-      lastName: this.contactForm.value.lastName || " ",
-      email: this.contactForm.value.email || " ",
-      phone: this.contactForm.value.phone ||" ",
-      company: this.contactForm.value.company || " ",
-      message: this.contactForm.value.message || " ",
-    }
-    this.http.post<Result>('/api/contactus', contactForm).subscribe( (result:Result) =>{
-      if (result.status == 'OK'){
-        console.log("postping OK, message is '",result.message, "'");
-        this.disabledButton = false;
-      }
-
-    })
-
-  }
-
+  // ✅ NETLIFY: removed constructor + onSubmit()
+  // The form now submits via normal HTML POST handled by Netlify Forms.
 }
