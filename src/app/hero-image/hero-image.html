@@ -1,0 +1,22 @@
+<section class="feature-item">
+  <div class="feature-item-spacer"></div>
+
+  <div class="feature-item-text">
+    <div class="feature-item-text-headline" [innerHTML]="headline"></div>
+    <div class="feature-item-text-text" [innerHTML]="bodyText"></div>
+  </div>
+
+  <div class="feature-item-media">
+    @if (safeImgSrc) {
+      <div class="feature-item-media-frame">
+        <img
+          [src]="safeImgSrc"
+          [alt]="'feature image'"
+        loading="lazy"
+        />
+      </div>
+    } @else {
+      <div class="feature-item-media-error">Image unavailable</div>
+    }
+  </div>
+</section>

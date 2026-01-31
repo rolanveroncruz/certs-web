@@ -1,0 +1,97 @@
+.solutions-container {
+  width: 100%;
+  background-color: rgba(189, 155, 77, 0.08);
+
+  min-height: 585px;
+
+  /* 115px top/bottom at 1440, scales down on smaller screens */
+  padding-block: clamp(48px, 7.99vw, 115px);
+  display: flex;
+
+  /* we keep the section full width; inner does the 90px sides */
+  text-align: center;
+}
+
+.solutions-inner {
+  width: 100%;
+  margin: auto 0;
+  /* “90px margin on sides at 1440” -> best as padding in full-width sections */
+  padding-inline: clamp(16px, 6.25vw, 90px);
+}
+
+/* Main headline matches the big section headings */
+.solutions-headline {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  color: black;
+  line-height: 1.1;
+
+  font-size: clamp(38px, 3.6vw, 56px);
+  margin: 0 0 clamp(24px, 3.1vw, 45px) 0;
+}
+
+.solutions-text {
+  font-family: 'Roboto', sans-serif;
+  font-size: clamp(16px, 1.3vw, 18px);
+  margin-top: 16px;
+  margin-bottom: clamp(24px, 3.5vw, 48px);
+  color: rgba(0,0,0,0.85);
+}
+
+/* Cards row */
+.solutions-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(16px, 2.5vw, 32px);
+
+  text-align: left;
+  align-items: start;
+}
+
+/* Each “text box” */
+.solutions-row-item {
+  padding: clamp(16px, 2.2vw, 28px);
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 16px;
+}
+
+/* Requirement: headline is same size as body, just bold */
+.solutions-row-item-headline {
+  font-family: 'Roboto', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  justify-content: center;
+}
+
+.solutions-row-item-text,
+.solutions-row-item-text-footer {
+  font-family: 'Roboto', sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+.solutions-row-item-text-footer {
+  margin-top: 14px;
+}
+
+.solutions-row-item a {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* Responsive: stack on smaller screens */
+@media (max-width: 1024px) {
+  .solutions-row {
+    grid-template-columns: 1fr;
+  }
+}
+.solutions-row-item img {
+  display: block;
+  width: clamp(160px, 18vw, 240px);
+  height: auto;
+  margin: 12px auto 16px;
+}
