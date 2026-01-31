@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {HeaderComponent} from '../landing/header/header';
 import {PKIRedefined} from './pkiredefined/pkiredefined';
 import {PKIresources} from './pki-resources/pkiresources';
-import {ContactUs} from './contact-us/contact-us';
+import {ContactUs} from '../landing/contact-us/contact-us';
 import {VideoPlayer} from '../video-player/video-player';
 
 @Component({

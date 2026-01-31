@@ -4,8 +4,8 @@ import {WhyDoWeNeedCLM} from './whydoweneedclm/whydoweneedclm';
 import {Twohundreddaycerts} from './twohundreddaycerts/twohundreddaycerts';
 import {Clmcapabilities} from './clmcapabilities/clmcapabilities';
 import {CLMResources} from './clm-resources/resources';
-import {ContactUs} from './contact-us/contact-us';
 import {VideoPlayer} from '../video-player/video-player';
+import {ContactUs} from '../landing/contact-us/contact-us';
 
 @Component({
   selector: 'app-clm',
