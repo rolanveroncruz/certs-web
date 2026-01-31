@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ContactUs } from './pki-contact-us';
+import { ContactUs } from './contact-us';
 
 describe('ContactUs', () => {
   let component: ContactUs;

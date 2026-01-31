@@ -1,0 +1,142 @@
+.contact-us-container {
+  width: 100%;
+  padding: clamp(32px, 6vw, 90px);
+}
+
+.contact-us-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: clamp(24px, 4vw, 80px);
+}
+
+/* LEFT panel */
+.contact-us {
+  flex: 1;
+  max-width: 520px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+
+  margin-top: 45px; /* requirement */
+}
+.contact-us h1 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  color: black;
+  line-height: 1.1;
+
+  font-size: clamp(38px, 3.6vw, 56px);
+  margin: 0;
+}
+
+.contact-us-message {
+  margin-top: 16px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+/* RIGHT panel */
+.contact-us-form {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+
+  margin-top: 45px; /* requirement */
+}
+
+/* lock form width */
+.contact-us-form form {
+  width: 650px;
+  max-width: 100%;
+}
+
+/* Make fields full width within the 650px form */
+mat-form-field {
+  width: 100%;
+}
+
+/* Make each textbox about 65px tall (Material input) */
+:host ::ng-deep .my-rounded-field .mat-mdc-form-field-infix {
+  min-height: 65px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* Textarea should be taller than 65px (otherwise it's tiny) */
+:host ::ng-deep textarea.mat-mdc-input-element {
+  min-height: 140px;
+}
+
+/* Button sizing */
+.contact-us-form button {
+  width: 100%;
+  margin-top: 12px;
+}
+
+/* Address formatting (your line-height was too tight) */
+.contact-us-address {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.contact-us-email {
+  padding-top: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+/* Lines unchanged; keep if you like the look */
+.lines {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  margin-left: -18px;
+  margin-top: -12px;
+}
+
+.blue_line { width: 90%; }
+.gold_line { width: 80%; margin-left: 19px; margin-top: -1px; }
+
+/* Mobile: stack */
+@media (max-width: 1024px) {
+  .contact-us-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-us,
+  .contact-us-form {
+    margin-top: 24px;
+    max-width: 650px;
+    width: 100%;
+  }
+
+  .contact-us {
+    align-items: center;
+    text-align: center;
+  }
+
+  .lines {
+    align-items: center;
+    margin-left: 0;
+  }
+}
+.contact-us-address p,
+.contact-us-email p {
+  margin: 0;
+}
+
+.contact-us-email {
+  padding-top: 25px; /* small, balanced gap; tweak 0–8px as you like */
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+}

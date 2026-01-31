@@ -21,7 +21,7 @@ type ContactUsForm = {
 }
 
 @Component({
-  selector: 'app-pki-contact-us',
+  selector: 'app-contact-us',
   imports: [
     ReactiveFormsModule,
     MatFormFieldModule,
@@ -30,10 +30,10 @@ type ContactUsForm = {
     MatButtonModule,
     TextFieldModule,
   ],
-  templateUrl: './pki-contact-us.html',
-  styleUrl: './pki-contact-us.scss'
+  templateUrl: './contact-us.html',
+  styleUrl: './contact-us.scss'
 })
-export class PKIContactUs {
+export class ContactUs {
   contactForm = new FormGroup({
     firstName: new FormControl(''),
     lastName: new FormControl(''),
