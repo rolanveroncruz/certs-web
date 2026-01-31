@@ -142,3 +142,9 @@
     height: auto;
   }
 }
+.feature-item-text-text :where(p) {
+  margin: 0 0 0.9em 0;
+}
+.feature-item-text-text :where(p:last-child) {
+  margin-bottom: 0;
+}
