@@ -62,20 +62,22 @@
   max-width: 70%;
   height: 100%;
   display: flex;
-  overflow: hidden;
+
+  /* left/right space around image portion */
+  padding-inline: 24px;
+  box-sizing: border-box;
+
+  /* letterbox color when we use object-fit: contain */
+  background-color: #fff;
 }
 
-/*
-  Key change vs your current version:
-  Make the iframe fill height like the carousel image (cover-ish).
-*/
+/* Frame fills the column */
 .feature-item-media-frame {
   position: relative;
-  width: 100%;
+  flex: 1;
   height: 100%;
+  overflow: hidden; /* crop happens here when using cover */
 }
-
-
 
 /* Error state also fills like the media area */
 .feature-item-media-error {
@@ -87,19 +89,29 @@
   justify-content: center;
   color: #666;
 }
+
+/*
+  ✅ KEY FIX:
+  Default to "contain" so mid-range widths don't crop.
+  Then switch to "cover" only on very large screens.
+*/
 .feature-item-media-frame img {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* fills the whole area, crops as needed */
   display: block;
+
+  object-fit: contain;      /* no cropping */
+  object-position: center;  /* keep centered */
 }
 
-
-
-
-
+/* Large screens: allow the bold "hero crop" look */
+@media (min-width: 1501px) {
+  .feature-item-media-frame img {
+    object-fit: cover; /* fills area, crops as needed */
+  }
+}
 
 /* Mobile: same behavior as carousel-item */
 @media (max-width: 768px) {
@@ -127,26 +139,39 @@
   }
 
   .feature-item-media {
-    flex: 0 0 auto;
-    max-width: 100%;
     width: 100%;
+    max-width: 100%;
+    padding-inline: 16px;
+    box-sizing: border-box;
   }
 
-  /* On mobile, let it size naturally by width (like your carousel image does) */
+  /* On mobile, let it size naturally by width */
   .feature-item-media-frame {
     height: auto;
     aspect-ratio: 16 / 9;
+    overflow: hidden;
   }
 
+  /* Ensure the absolutely-positioned image still fits the new aspect box */
+  .feature-item-media-frame img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* safest for mobile too */
+  }
 
   .feature-item-media-error {
     aspect-ratio: 16 / 9;
     height: auto;
   }
 }
+
+/* innerHTML paragraphs spacing */
 .feature-item-text-text :where(p) {
   margin: 0 0 0.9em 0;
 }
+
 .feature-item-text-text :where(p:last-child) {
   margin-bottom: 0;
 }
