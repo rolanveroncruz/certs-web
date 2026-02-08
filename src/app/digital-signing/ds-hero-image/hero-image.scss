@@ -1,0 +1,177 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+/* Acts like "one carousel-item" */
+.feature-item {
+  width: 100%;
+  height: clamp(235px, 40.625vw, 585px); /* same as .carousel-wrapper */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #eff5ff;
+  overflow: hidden;
+}
+
+.feature-item-spacer {
+  height: clamp(18px, 3.3vw, 48px); /* same as carousel spacer */
+  flex: 0 0 auto;
+}
+
+/* 30% text column like carousel */
+.feature-item-text {
+  flex: 0 0 30%;
+  max-width: 30%;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  overflow: hidden;
+  padding-left: clamp(18px, 2.2vw, 32px);
+  padding-right: clamp(14px, 1.8vw, 28px);
+}
+
+/* Match typography sizing */
+.feature-item-text-headline {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 800;
+  line-height: 1.05em;
+  font-size: clamp(30px, 3.125vw, 45px);
+  padding-bottom: clamp(10px, 0.9vw, 14px);
+}
+
+.feature-item-text-text {
+  margin-top: 0;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  line-height: 1.55em;
+  color: #2b2f36;
+
+  font-size: clamp(14px, 1.389vw, 20px);
+  max-width: 28ch; /* same “text measure” */
+}
+
+/* 70% media column like carousel image */
+.feature-item-media {
+  flex: 0 0 70%;
+  max-width: 70%;
+  height: 100%;
+  display: flex;
+
+  /* left/right space around image portion */
+  padding-inline: 24px;
+  box-sizing: border-box;
+
+  /* letterbox color when we use object-fit: contain */
+  background-color: #fff;
+}
+
+/* Frame fills the column */
+.feature-item-media-frame {
+  position: relative;
+  flex: 1;
+  height: 100%;
+  overflow: hidden; /* crop happens here when using cover */
+}
+
+/* Error state also fills like the media area */
+.feature-item-media-error {
+  width: 100%;
+  height: 100%;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+}
+
+/*
+  ✅ KEY FIX:
+  Default to "contain" so mid-range widths don't crop.
+  Then switch to "cover" only on very large screens.
+*/
+.feature-item-media-frame img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+
+  object-fit: contain;      /* no cropping */
+  object-position: center;  /* keep centered */
+}
+
+/* Large screens: allow the bold "hero crop" look */
+@media (min-width: 1501px) {
+  .feature-item-media-frame img {
+    object-fit: cover; /* fills area, crops as needed */
+  }
+}
+
+/* Mobile: same behavior as carousel-item */
+@media (max-width: 768px) {
+  .feature-item {
+    height: auto;
+    flex-direction: column;
+  }
+
+  .feature-item-text {
+    overflow: visible;
+    width: 100%;
+    max-width: 100%;
+    align-items: center;
+    text-align: center;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 16px;
+  }
+
+  .feature-item-text-headline,
+  .feature-item-text-text {
+    max-width: 100%;
+    word-break: break-word;
+    margin-bottom: 16px;
+  }
+
+  .feature-item-media {
+    width: 100%;
+    max-width: 100%;
+    padding-inline: 16px;
+    box-sizing: border-box;
+  }
+
+  /* On mobile, let it size naturally by width */
+  .feature-item-media-frame {
+    height: auto;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+  }
+
+  /* Ensure the absolutely-positioned image still fits the new aspect box */
+  .feature-item-media-frame img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* safest for mobile too */
+  }
+
+  .feature-item-media-error {
+    aspect-ratio: 16 / 9;
+    height: auto;
+  }
+}
+
+/* innerHTML paragraphs spacing */
+.feature-item-text-text :where(p) {
+  margin: 0 0 0.9em 0;
+}
+
+.feature-item-text-text :where(p:last-child) {
+  margin-bottom: 0;
+}

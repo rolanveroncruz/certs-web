@@ -1,0 +1,44 @@
+.transform-your-document-security-container{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+  width:100%;
+}
+.headline {
+  font-family: 'Roboto', sans-serif;
+  font-size: 3em;
+  color: black;
+  padding-bottom: 2rem;
+  line-height: 1.10em;
+}
+
+.text-body{
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5em;
+  color: black;
+  padding-bottom: 2rem;
+  line-height: 1.10em;
+}
+
+:host .text-body ul {
+  list-style: none !important;   /* kill default bullets */
+  padding-left: 0 !important;
+  margin-left: 0;
+}
+
+:host .text-body li {
+  list-style: none !important;   /* extra safety */
+  position: relative;
+  padding-left: 1.0em;          /* space for the check */
+}
+
+:host .text-body li::before {
+  content: "✔";                  /* or "✓" */
+  position: absolute;
+  left: 0;
+  top: 0.1em;                    /* tweak vertical alignment */
+}
